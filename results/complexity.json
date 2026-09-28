@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "torch": "2.12.1+cu130",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "dtype": "float32",
+    "tta": "off",
+    "batch": 1,
+    "compile": "off",
+    "flops_note": "MAC count over Conv2d/ConvTranspose2d/Linear only; FFT not included",
+    "nnunetv2": "2.8.1"
+  },
+  "rows": [
+    {
+      "method": "nnU-Net v2",
+      "trainer": "nnUNetTrainerBaseline150",
+      "plans": "nnUNetPlans",
+      "params_M": 33.47182,
+      "flops_G": 51.666485248,
+      "latency_ms": 8.240207582712173,
+      "input_shape": [
+        1,
+        512,
+        448
+      ]
+    },
+    {
+      "method": "nnU-Net v2 half",
+      "trainer": "nnUNetTrainerBaseline150",
+      "plans": "nnUNetPlans_half",
+      "params_M": 8.374444,
+      "flops_G": 12.9368064,
+      "latency_ms": 5.900658071041107,
+      "input_shape": [
+        1,
+        512,
+        448
+      ],
+      "d_params_pct": 74.98061354297437,
+      "d_flops_pct": 74.96093195056116,
+      "d_latency_pct": 28.39187591074046
+    },
+    {
+      "method": "Ghost_CIL-nnUNet",
+      "trainer": "nnUNetTrainerGhostCIL",
+      "plans": "nnUNetPlans",
+      "params_M": 18.177148,
+      "flops_G": 27.18521344,
+      "latency_ms": 7.580744847655296,
+      "input_shape": [
+        1,
+        512,
+        448
+      ],
+      "d_params_pct": 45.694174980625505,
+      "d_flops_pct": 47.38327310342378,
+      "d_latency_pct": 8.00298692038317
+    },
+    {
+      "method": "Ghost_CIL+MDA",
+      "trainer": "nnUNetTrainerGhostCIL_MDA",
+      "plans": "nnUNetPlans",
+      "params_M": 18.379472,
+      "flops_G": 27.2434444,
+      "latency_ms": 16.987881511449814,
+      "input_shape": [
+        1,
+        512,
+        448
+      ],
+      "d_params_pct": 45.08971427308106,
+      "d_flops_pct": 47.27056762380679,
+      "d_latency_pct": -106.1584170171893
+    },
+    {
+      "method": "GMA-nnUNet",
+      "trainer": "nnUNetTrainerGMA",
+      "plans": "nnUNetPlans",
+      "params_M": 18.379472,
+      "flops_G": 27.2434444,
+      "latency_ms": 17.065422907471657,
+      "input_shape": [
+        1,
+        512,
+        448
+      ],
+      "d_params_pct": 45.08971427308106,
+      "d_flops_pct": 47.27056762380679,
+      "d_latency_pct": -107.0994296706147
+    },
+    {
+      "method": "GMA-nnUNet no-freq",
+      "trainer": "nnUNetTrainerGMA_NoFreq",
+      "plans": "nnUNetPlans",
+      "params_M": 18.378737,
+      "flops_G": 27.21897912,
+      "latency_ms": 12.871274016797543,
+      "input_shape": [
+        1,
+        512,
+        448
+      ],
+      "d_params_pct": 45.09191015009043,
+      "d_flops_pct": 47.317919944915076,
+      "d_latency_pct": -56.20084673353707
+    },
+    {
+      "method": "U-Net",
+      "trainer": "nnUNetTrainerUNet",
+      "plans": "nnUNetPlans",
+      "params_M": 31.036546,
+      "flops_G": 168.336293888,
+      "latency_ms": 17.22041968256235,
+      "input_shape": [
+        1,
+        512,
+        448
+      ],
+      "d_params_pct": 7.275594813786645,
+      "d_flops_pct": -225.8133257564995,
+      "d_latency_pct": -108.98041110870219
+    },
+    {
+      "method": "Attention U-Net",
+      "trainer": "nnUNetTrainerAttUNet",
+      "plans": "nnUNetPlans",
+      "params_M": 31.387118,
+      "flops_G": 172.108152832,
+      "latency_ms": 19.098226092755795,
+      "input_shape": [
+        1,
+        512,
+        448
+      ],
+      "d_params_pct": 6.228230194832552,
+      "d_flops_pct": -233.1137235402756,
+      "d_latency_pct": -131.76874976819244
+    }
+  ],
+  "errors": []
+}

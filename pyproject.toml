@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ghostcil-nnunet"
+version = "1.0.0"
+description = "Ghost-convolution lightweight nnU-Net for CT segmentation of the osseous structures surrounding the paranasal sinuses"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.1",
+    "numpy",
+    "scipy",
+    "scikit-image",
+    "imageio",
+    "pillow",
+    "nnunetv2>=2.5,<3.0",
+]
+
+[project.optional-dependencies]
+figures = ["matplotlib"]
+
+[tool.setuptools]
+packages = ["ghostcil_nnunet"]

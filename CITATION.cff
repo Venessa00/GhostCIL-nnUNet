@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below (update the reference once it is published)."
+title: "GhostCIL-nnUNet: Ghost-convolution lightweight nnU-Net for CT segmentation of the osseous structures surrounding the paranasal sinuses"
+type: software
+version: 1.0.0
+date-released: 2026-09-27
+license: MIT
+authors:
+  - family-names: Tan
+    given-names: Xin
+    affiliation: "School of Optical-Electrical and Computer Engineering, University of Shanghai for Science and Technology"
+  # TODO: add the remaining authors in the order of the paper
+preferred-citation:
+  type: article
+  title: "面向鼻旁窦周围骨性结构CT分割的Ghost卷积轻量化nnU-Net (A Ghost-convolution lightweight nnU-Net for CT segmentation of the osseous structures surrounding the paranasal sinuses)"
+  journal: "生物医学工程学杂志 (Journal of Biomedical Engineering)"
+  year: 2026
+  notes: "submitted"
+  authors:
+    - family-names: Tan
+      given-names: Xin
+    # TODO: add the remaining authors

@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# nnU-Net working folders and pipeline outputs
+nnUNet_raw/
+nnUNet_preprocessed/
+nnUNet_results/
+ghostcil_work/
+Craneal_CT/
+synthetic_ct/
+preds/
+valsets/
+collect/
+splits_final.json
+*.tar.gz
+*.zip
+*.pth
+
+# editors / OS
+.idea/
+.vscode/
+.DS_Store

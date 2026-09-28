@@ -1,0 +1,41 @@
+== External test set (4 independent subjects, 120 slices; each fold model predicts separately, no ensembling) ==
+
+method                 folds  Dice (fold mean±SD)              IoU           HD95
+Attention_U-Net            3     0.8405±0.0118     0.7589±0.0156        25.23±4.57
+GMA-nnUNet                 3     0.9341±0.0087     0.8775±0.0149         4.44±0.55
+GMA_DiceBoundary           1     0.9217±0.0000     0.8584±0.0000         7.62±0.00
+GMA_DiceFocal              1     0.9395±0.0000     0.8863±0.0000         4.42±0.00
+GMA_DiceOnly               1     0.9329±0.0000     0.8753±0.0000         6.82±0.00
+GMA_NoFreq                 1     0.9416±0.0000     0.8901±0.0000         3.29±0.00
+Ghost_CIL+MDA              3     0.9396±0.0051     0.8866±0.0089         5.35±1.03
+Ghost_CIL-nnUNet           3     0.9417±0.0025     0.8904±0.0044         3.95±0.23
+U-Net                      3     0.8462±0.0272     0.7670±0.0320        24.30±4.48
+nnU-Net_v2                 3     0.9368±0.0037     0.8817±0.0065         7.50±2.14
+nnU-Net_v2_half            3     0.9341±0.0039     0.8772±0.0066         5.23±1.81
+
+Dice per subject (mean over the 3 fold models):
+method                       P13       P16       P30       P38
+Attention_U-Net           0.9229    0.5874    0.8997    0.9520
+GMA-nnUNet                0.9261    0.9190    0.9349    0.9564
+GMA_DiceBoundary          0.9266    0.8737    0.9312    0.9553
+GMA_DiceFocal             0.9289    0.9321    0.9403    0.9565
+GMA_DiceOnly              0.9298    0.9136    0.9363    0.9519
+GMA_NoFreq                0.9350    0.9321    0.9445    0.9548
+Ghost_CIL+MDA             0.9306    0.9297    0.9395    0.9584
+Ghost_CIL-nnUNet          0.9317    0.9366    0.9388    0.9598
+U-Net                     0.9232    0.6240    0.8809    0.9566
+nnU-Net_v2                0.9293    0.9228    0.9370    0.9579
+nnU-Net_v2_half           0.9243    0.9240    0.9303    0.9578
+
+Paired tests against nnU-Net_v2: slice-level Wilcoxon (n≈120; slices are not independent, for reference only) + direction of the difference in each of the 4 subjects
+  Attention_U-Net         dice: P=0.0000* better than baseline in 0/4 subjects  iou: P=0.0000* better than baseline in 0/4 subjects  hd95: P=0.0000* better than baseline in 0/4 subjects
+  GMA-nnUNet              dice: P=0.0011* better than baseline in 0/4 subjects  iou: P=0.0015* better than baseline in 0/4 subjects  hd95: P=0.1944  better than baseline in 3/4 subjects
+  GMA_DiceBoundary        dice: P=0.0003* better than baseline in 0/4 subjects  iou: P=0.0003* better than baseline in 0/4 subjects  hd95: P=0.0265* better than baseline in 2/4 subjects
+  GMA_DiceFocal           dice: P=0.1825  better than baseline in 2/4 subjects  iou: P=0.2003  better than baseline in 2/4 subjects  hd95: P=0.2196  better than baseline in 1/4 subjects
+  GMA_DiceOnly            dice: P=0.1107  better than baseline in 1/4 subjects  iou: P=0.0912  better than baseline in 1/4 subjects  hd95: P=0.0497* better than baseline in 1/4 subjects
+  GMA_NoFreq              dice: P=0.0000* better than baseline in 3/4 subjects  iou: P=0.0000* better than baseline in 3/4 subjects  hd95: P=0.0000* better than baseline in 4/4 subjects
+  Ghost_CIL+MDA           dice: P=0.0008* better than baseline in 4/4 subjects  iou: P=0.0007* better than baseline in 4/4 subjects  hd95: P=0.0795  better than baseline in 2/4 subjects
+  Ghost_CIL-nnUNet        dice: P=0.0000* better than baseline in 4/4 subjects  iou: P=0.0000* better than baseline in 4/4 subjects  hd95: P=0.0000* better than baseline in 3/4 subjects
+  U-Net                   dice: P=0.0000* better than baseline in 0/4 subjects  iou: P=0.0000* better than baseline in 0/4 subjects  hd95: P=0.0000* better than baseline in 0/4 subjects
+  nnU-Net_v2_half         dice: P=0.0000* better than baseline in 1/4 subjects  iou: P=0.0000* better than baseline in 1/4 subjects  hd95: P=0.0000* better than baseline in 3/4 subjects
+  * slice-level P<0.05. A method is only called better when P<0.05 and the subject-level directions agree.
